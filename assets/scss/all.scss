@@ -10,21 +10,28 @@
 @import "../../node_modules/bootstrap/scss/functions";
 @import './utils/variables';
 
+/* with maps */
 @import "../../node_modules/bootstrap/scss/maps";
+
 /* with util */
 @import "./utils/utilities";
-/* with maps */
+@import "./utils/variables";
+@import "./utils/typography";
+
+
 
 @import "../../node_modules/bootstrap";
 
 /* Custom */
-@import "./components/buttons";
-@import "./components/images";
-@import "./components/variables";
+// @import "./base/base";
+// @import "./components/buttons";
+// @import "./components/custom_button";
+// @import "./components/custom_stepbar";
+// @import "./components/images";
+
+@import "./components/swiper";
 
 @import './layout/header.scss';
 @import './layout/footer.scss';
 
-
 @import './pages/index.scss';
-

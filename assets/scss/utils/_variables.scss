@@ -86,6 +86,7 @@ $blue-700: shade-color($blue, 40%) !default;
 $blue-800: shade-color($blue, 60%) !default;
 $blue-900: shade-color($blue, 80%) !default;
 
+
 $indigo-100: tint-color($indigo, 80%) !default;
 $indigo-200: tint-color($indigo, 60%) !default;
 $indigo-300: tint-color($indigo, 40%) !default;
@@ -297,27 +298,124 @@ $cyans: (
 ) !default;
 // fusv-enable
 
+// scss docs start 自定義色彩 
+// 主要色 Primary (品牌色，最主要使用
+$custom-primary-120: #7B6651 !default;
+$custom-primary-100: #BF9D7D !default;
+$custom-primary-80: #AE9984 !default;
+$custom-primary-60: #E1D1C2 !default;
+$custom-primary-40: #F1EAE4 !default;
+$custom-primary-10: #F7F2EE !default;
+$custom-primary-tint: #FAF7F5 !default;
+
+$custom-primary: (
+  "custom-primary-120" : $custom-primary-120,
+  "custom-primary-100" : $custom-primary-100,
+  "custom-primary-80"  : $custom-primary-80,
+  "custom-primary-60"  : $custom-primary-60,
+  "custom-primary-40"  : $custom-primary-40,
+  "custom-primary-10"  : $custom-primary-10,
+  "custom-primary-tint": $custom-primary-tint,
+) !default;
+
+// 語意輔助色 Semantic 
+// Success
+$custom-success-120: #299F65 !default; 
+$custom-success-100: #52DD7E !default;
+$custom-success-20: #BCFBBD !default;
+$custom-success-10: #E8FEE7 !default;
+
+$custom-success: (
+  "custom-success-120" : $custom-success-120,
+  "custom-success-100" : $custom-success-100,
+  "custom-success-20"  : $custom-success-20,
+  "custom-success-10"  : $custom-success-10,
+) !default;
+
+
+// Info
+$custom-info-120: #1D66AC !default;
+$custom-info-100: #3BADEF !default;
+$custom-info-20: #B1EFFD !default;
+$custom-info-10: #E6FBFE !default;
+
+$custom-info: (
+  "custom-info-120" : $custom-info-120,
+  "custom-info-100" : $custom-info-100,
+  "custom-info-20"  : $custom-info-20,
+  "custom-info-10"  : $custom-info-10,
+) !default;
+
+// Alert
+$custom-alert-120:#C22538 !default;
+$custom-alert-100:#DA3E51 !default;
+$custom-alert-20:#F5CCD1 !default;
+$custom-alert-10:#FDECEF !default;
+
+$custom-alert: (
+  "custom-alert-120" : $custom-alert-120,
+  "custom-alert-100" : $custom-alert-100,
+  "custom-alert-20"  : $custom-alert-20,
+  "custom-alert-10"  : $custom-alert-10,
+) !default;
+
+
+// Error
+$custom-error-120:#C22538 !default;
+$custom-error-100:#DA3E51 !default;
+$custom-error-20:#F5CCD1 !default;
+$custom-error-10:#FDECEF !default;
+
+$custom-error: (
+  "custom-error-120" : $custom-error-120,
+  "custom-error-100" : $custom-error-100,
+  "custom-error-20"  : $custom-error-20,
+  "custom-error-10"  : $custom-error-10,
+) !default;
+
+// 中性色 Neutral
+// 文字顏色、系統性 Icon等。
+$custom-neutral-bg: #140F0A !default;
+$custom-neutral-100: #000000 !default;
+$custom-neutral-80: #4B4B4B !default;
+$custom-neutral-60: #909090 !default;
+$custom-neutral-40: #ECECEC !default;
+$custom-neutral-10: #F9F9F9 !default;
+$custom-neutral-0: #FFFFFF !default;
+
+$custom-neutral: (
+  "custom-neutral-bg" : $custom-neutral-bg,
+  "custom-neutral-100" : $custom-neutral-100,
+  "custom-neutral-80"  : $custom-neutral-80,
+  "custom-neutral-60"  : $custom-neutral-60,
+  "custom-neutral-40"  : $custom-neutral-40,
+  "custom-neutral-10"  : $custom-neutral-10,
+  "custom-neutral-0"  : $custom-neutral-0,
+) !default;
+// scss docs end 自定義色彩 
+
 // scss-docs-start theme-color-variables
-$primary:       $blue !default;
+// $primary:       $blue !default;
+$primary:       $custom-primary-100 !default; // $blue !default;
 $secondary:     $gray-600 !default;
-$success:       $green !default;
-$info:          $cyan !default;
-$warning:       $yellow !default;
-$danger:        $red !default;
+$success:       $custom-success-100 !default; // $green !default;
+$info:          $custom-info-100 !default;    // $cyan !default;
+$warning:       $custom-alert-100 !default;   // $yellow !default;
+$danger:        $custom-error-100 !default;   // $red !default;
 $light:         $gray-100 !default;
-$dark:          $gray-900 !default;
+$dark:          $custom-neutral-100 !default; // $gray-900 !default;
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
 $theme-colors: (
-  "primary":    $primary,
+  "primary":    $custom-primary-100, // $primary,
   "secondary":  $secondary,
-  "success":    $success,
-  "info":       $info,
-  "warning":    $warning,
-  "danger":     $danger,
+  "success":    $custom-success-100, // $success,
+  "info":       $custom-info-100,    // $info,
+  "warning":    $custom-alert-100,   // $warning,
+  "danger":     $custom-error-100,   // $danger,
   "light":      $light,
-  "dark":       $dark
+  "dark":       $custom-neutral-100, // $dark
 ) !default;
 // scss-docs-end theme-colors-map
 
@@ -335,7 +433,15 @@ $escaped-characters: (
 // Quickly modify global styling by enabling or disabling optional features.
 
 $enable-caret:                true !default;
-$enable-rounded:              true !default;
+
+/*
+[移除掉所有圓角]
+該設定變數名稱是 $enable-rounded。
+只要改為 false 之後就可以移除掉預設的圓角囉。
+*/
+// $enable-rounded:              true !default; // 預設值
+$enable-rounded:              false !default; // *custom
+
 $enable-shadows:              false !default;
 $enable-gradients:            false !default;
 $enable-transitions:          true !default;
@@ -371,15 +477,181 @@ $gradient: linear-gradient(180deg, rgba($white, .15), rgba($white, 0)) !default;
 // You can add more entries to the $spacers map, should you need more variation.
 
 // scss-docs-start spacer-variables-maps
+
+/*
+[修改間距設定（.mb-1, .pt-2…）]
+搜尋 $spacers 則可以來到調整間距的地方。
+
+可以先觀察設計稿的元素間距會有那些數值，然後來設定間距的數值。
+記得也要先複製一份初始設定，註解掉後再開始寫新設定喔!
+*/
+
 $spacer: 1rem !default;
-$spacers: (
+/*$spacers: (
   0: 0,
   1: $spacer * .25,
   2: $spacer * .5,
   3: $spacer,
   4: $spacer * 1.5,
   5: $spacer * 3,
-) !default;
+) !default;*/
+
+$spacers: (
+  0: 0,                // 0px
+  1: $spacer * 0.25,   // 4px
+  2: $spacer * 0.5,    // 8px
+  3: $spacer * 0.75,   // 12px
+  4: $spacer * 1,      // 16px
+  5: $spacer * 1.25,   // 20px
+  6: $spacer * 1.5,    // 24px
+  7: $spacer * 1.75,   // 28px
+  8: $spacer * 2,      // 32px
+  9: $spacer * 2.25,   // 36px
+  10: $spacer * 2.5,   // 40px
+  11: $spacer * 2.75,  // 44px
+  12: $spacer * 3,     // 48px
+  13: $spacer * 3.25,  // 52px
+  14: $spacer * 3.5,   // 56px
+  15: $spacer * 3.75,  // 60px
+  16: $spacer * 4,     // 64px
+  17: $spacer * 4.25,  // 68px
+  18: $spacer * 4.5,   // 72px
+  19: $spacer * 4.75,  // 76px
+  20: $spacer * 5,     // 80px
+  21: $spacer * 5.25,  // 84px
+  22: $spacer * 5.5,   // 88px
+  23: $spacer * 5.75,  // 92px
+  24: $spacer * 6,     // 96px
+  25: $spacer * 6.25,  // 100px
+  26: $spacer * 6.5,   // 104px
+  27: $spacer * 6.75,  // 108px
+  28: $spacer * 7,     // 112px
+  29: $spacer * 7.25,  // 116px
+  30: $spacer * 7.5,   // 120px
+  31: $spacer * 7.75,  // 124px
+  32: $spacer * 8,     // 128px
+  33: $spacer * 8.25,  // 132px
+  34: $spacer * 8.5,   // 136px
+  35: $spacer * 8.75,  // 140px
+  36: $spacer * 9,     // 144px
+  37: $spacer * 9.25,  // 148px
+  38: $spacer * 9.5,   // 152px
+  39: $spacer * 9.75,  // 156px
+  40: $spacer * 10,    // 160px
+  41: $spacer * 10.25, // 164px
+  42: $spacer * 10.5,  // 168px
+  43: $spacer * 10.75, // 172px
+  44: $spacer * 11,    // 176px
+  45: $spacer * 11.25, // 180px
+  46: $spacer * 11.5,  // 184px
+  47: $spacer * 11.75, // 188px
+  48: $spacer * 12,    // 192px
+  49: $spacer * 12.25, // 196px
+  50: $spacer * 12.5,  // 200px
+  51: $spacer * 12.75, // 204px
+  52: $spacer * 13,    // 208px
+  53: $spacer * 13.25, // 212px
+  54: $spacer * 13.5,  // 216px
+  55: $spacer * 13.75, // 220px
+  56: $spacer * 14,    // 224px
+  57: $spacer * 14.25, // 228px
+  58: $spacer * 14.5,  // 232px
+  59: $spacer * 14.75, // 236px
+  60: $spacer * 15,    // 240px
+  61: $spacer * 15.25, // 244px
+  62: $spacer * 15.5,  // 248px
+  63: $spacer * 15.75, // 252px
+  64: $spacer * 16,    // 256px
+  65: $spacer * 16.25, // 260px
+  66: $spacer * 16.5,  // 264px
+  67: $spacer * 16.75, // 268px
+  68: $spacer * 17,    // 272px
+  69: $spacer * 17.25, // 276px
+  70: $spacer * 17.5,  // 280px
+  71: $spacer * 17.75, // 284px
+  72: $spacer * 18,    // 288px
+  73: $spacer * 18.25, // 292px
+  74: $spacer * 18.5,  // 296px
+  75: $spacer * 18.75, // 300px
+  76: $spacer * 19,    // 304px
+  77: $spacer * 19.25, // 308px
+  78: $spacer * 19.5,  // 312px
+  79: $spacer * 19.75, // 316px
+  80: $spacer * 20,    // 320px
+  81: $spacer * 20.25, // 324px
+  82: $spacer * 20.5,  // 328px
+  83: $spacer * 20.75, // 332px
+  84: $spacer * 21,    // 336px
+  85: $spacer * 21.25, // 340px
+  86: $spacer * 21.5,  // 344px
+  87: $spacer * 21.75, // 348px
+  88: $spacer * 22,    // 352px
+  89: $spacer * 22.25, // 356px
+  90: $spacer * 22.5,  // 360px
+  91: $spacer * 22.75, // 364px
+  92: $spacer * 23,    // 368px
+  93: $spacer * 23.25, // 372px
+  94: $spacer * 23.5,  // 376px
+  95: $spacer * 23.75, // 380px
+  96: $spacer * 24,    // 384px
+  97: $spacer * 24.25, // 388px
+  98: $spacer * 24.5,  // 392px
+  99: $spacer * 24.75, // 396px
+  100: $spacer * 25,   // 400px
+  101: $spacer * 25.25, // 404px
+  102: $spacer * 25.5,  // 408px
+  103: $spacer * 25.75, // 412px
+  104: $spacer * 26,    // 416px
+  105: $spacer * 26.25, // 420px
+  106: $spacer * 26.5,  // 424px
+  107: $spacer * 26.75, // 428px
+  108: $spacer * 27,    // 432px
+  109: $spacer * 27.25, // 436px
+  110: $spacer * 27.5,  // 440px
+  111: $spacer * 27.75, // 444px
+  112: $spacer * 28,    // 448px
+  113: $spacer * 28.25, // 452px
+  114: $spacer * 28.5,  // 456px
+  115: $spacer * 28.75, // 460px
+  116: $spacer * 29,    // 464px
+  117: $spacer * 29.25, // 468px
+  118: $spacer * 29.5,  // 472px
+  119: $spacer * 29.75, // 476px
+  120: $spacer * 30,    // 480px
+  121: $spacer * 30.25, // 484px
+  122: $spacer * 30.5,  // 488px
+  123: $spacer * 30.75, // 492px
+  124: $spacer * 31,    // 496px
+  125: $spacer * 31.25, // 500px
+  126: $spacer * 31.5,  // 504px
+  127: $spacer * 31.75, // 508px
+  128: $spacer * 32,    // 512px
+  129: $spacer * 32.25, // 516px
+  130: $spacer * 32.5,  // 520px
+  131: $spacer * 32.75, // 524px
+  132: $spacer * 33,    // 528px
+  133: $spacer * 33.25, // 532px
+  134: $spacer * 33.5,  // 536px
+  135: $spacer * 33.75, // 540px
+  136: $spacer * 34,    // 544px
+  137: $spacer * 34.25, // 548px
+  138: $spacer * 34.5,  // 552px
+  139: $spacer * 34.75, // 556px
+  140: $spacer * 35,    // 560px
+  141: $spacer * 35.25, // 564px
+  142: $spacer * 35.5,  // 568px
+  143: $spacer * 35.75, // 572px
+  144: $spacer * 36,    // 576px
+  145: $spacer * 36.25, // 580px
+  146: $spacer * 36.5,  // 584px
+  147: $spacer * 36.75, // 588px
+  148: $spacer * 37,    // 592px
+  149: $spacer * 37.25, // 596px
+  150: $spacer * 37.5,  // 600px
+); // *custom
+
+
+
 // scss-docs-end spacer-variables-maps
 
 // Position
@@ -387,19 +659,38 @@ $spacers: (
 // Define the edge positioning anchors of the position utilities.
 
 // scss-docs-start position-map
-$position-values: (
+/*$position-values: (
   0: 0,
   50: 50%,
   100: 100%
-) !default;
+) !default;*/
+
+$position-values: (
+  0: 0,
+  4: 4%,
+  10: 10%,
+  15: 15%,
+  20: 20%,
+  25: 25%,
+  50: 50%,
+  100: 100%
+); // *custom
+
+
 // scss-docs-end position-map
 
 // Body
 //
 // Settings for the `<body>` element.
 
-$body-bg:                   $white !default;
-$body-color:                $gray-900 !default;
+/*
+[網站背景色以及文字基本顏色]
+Bootstrap 的變數檔案，也有可以修改網站 body 整體背景色的地方。
+還有可以修改文字的基本顏色的地方~
+*/
+
+$body-bg:                   $custom-neutral-bg !default; // $white !default;
+$body-color:                $custom-neutral-0 !default; // $gray-900 !default;
 $body-text-align:           null !default;
 
 // Links
@@ -407,7 +698,11 @@ $body-text-align:           null !default;
 // Style anchor elements.
 
 $link-color:                              $primary !default;
-$link-decoration:                         underline !default;
+
+/* [移除 a 連結底線] */
+// $link-decoration:                         underline !default;
+$link-decoration:                         none !default; // *custom
+
 $link-shade-percentage:                   20% !default;
 $link-hover-color:                        shift-color($link-color, $link-shade-percentage) !default;
 $link-hover-decoration:                   null !default;
@@ -419,8 +714,15 @@ $stretched-link-z-index:                  1 !default;
 //
 // Style p element.
 
-$paragraph-margin-bottom:   1rem !default;
 
+/*
+[移除標題標籤或 p 標籤預設的 margin-bottom]
+Bootstrap 的標題標籤、 p 標籤預設有 margin-bottom，如果同學不喜歡這個預設的 margin-bottom 的話，
+可以搜尋  $headings-margin-bottom 和 $paragraph-margin-bottom 來修改設定將預設的 margin-bottom 移除。
+*/
+
+// $paragraph-margin-bottom:   1rem !default;
+$paragraph-margin-bottom:                0 !default; // *custom
 
 // Grid breakpoints
 //
@@ -540,7 +842,22 @@ $aspect-ratios: (
 
 // scss-docs-start font-variables
 // stylelint-disable value-keyword-case
-$font-family-sans-serif:      system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+
+/*
+[修改字型]
+引入外部字型後，在 _variables.scss 搜尋關鍵字 scss-docs-start font-variables，
+可以直接跳到改字型的地方 $font-family-sans-serif 。
+
+在最前方加入設計稿的文字 Yeseva One 和 Noto Sans TC 以及 Noto Serif TC。
+如果是中間有空格的字型，都建議使用單引號來包住字型名稱唷。
+*/
+
+// $font-family-sans-serif:      system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-sans-serif: 'Noto Sans TC', 'Noto Serif TC', 'Yeseva One', system-ui, -apple-system, 'Segoe UI',
+  Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji',
+  'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
+
 $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 // stylelint-enable value-keyword-case
 $font-family-base:            var(--#{$prefix}font-sans-serif) !default;
@@ -566,27 +883,59 @@ $line-height-base:            1.5 !default;
 $line-height-sm:              1.25 !default;
 $line-height-lg:              2 !default;
 
-$h1-font-size:                $font-size-base * 2.5 !default;
-$h2-font-size:                $font-size-base * 2 !default;
-$h3-font-size:                $font-size-base * 1.75 !default;
-$h4-font-size:                $font-size-base * 1.5 !default;
-$h5-font-size:                $font-size-base * 1.25 !default;
-$h6-font-size:                $font-size-base !default;
+//$h1-font-size:                $font-size-base * 2.5 !default;
+$h1-font-size:                $font-size-base * 3 !default;        // *custom
+//$h2-font-size:                $font-size-base * 2 !default;
+$h2-font-size:                $font-size-base * 2.5 !default;      // *custom
+// $h3-font-size:                $font-size-base * 1.75 !default;
+$h3-font-size:                $font-size-base * 2 !default;        // *custom
+// $h4-font-size:                $font-size-base * 1.5 !default;
+$h4-font-size:                $font-size-base * 1.75 !default;     // *custom
+// $h5-font-size:                $font-size-base * 1.25 !default;
+$h5-font-size:                $font-size-base * 1.5 !default;      // *custom
+// $h6-font-size:                $font-size-base !default;
+$h6-font-size:                $font-size-base * 1.25 !default;     // *custom
+
+$h7-font-size:                $font-size-base * 1 !default;        // *custom
+$h8-font-size:                $font-size-base * 0.875 !default;    // *custom
+$h9-font-size:                $font-size-base * 0.75 !default;     // *custom
+$h10-font-size:               $font-size-base * 0.625 !default;    // *custom
+
 // scss-docs-end font-variables
 
 // scss-docs-start font-sizes
+/*
+[修改文字大小]
+搜尋 $font-sizes 可以來到調整間距的地方。 
+
+可以先觀察設計稿使用了那些文字大小，來調整這邊的設定。
+記得也要先複製一份初始設定，註解掉後再開始寫新設定喔!
+*/
+
 $font-sizes: (
-  1: $h1-font-size,
-  2: $h2-font-size,
-  3: $h3-font-size,
-  4: $h4-font-size,
-  5: $h5-font-size,
-  6: $h6-font-size
+  1: $h1-font-size,   // 48px  .fs-1
+  2: $h2-font-size,   // 40px  .fs-2
+  3: $h3-font-size,   // 32px  .fs-3
+  4: $h4-font-size,   // 28px  .fs-4
+  5: $h5-font-size,   // 24px  .fs-5
+  6: $h6-font-size,   // 20px  .fs-6
+  7: $h7-font-size,   // 16px  .fs-7
+  8: $h8-font-size,   // 14px  .fs-8
+  9: $h9-font-size,   // 12px  .fs-9
+  10: $h10-font-size, // 10px  .fs-10
 ) !default;
 // scss-docs-end font-sizes
 
 // scss-docs-start headings-variables
-$headings-margin-bottom:      $spacer * .5 !default;
+
+/*
+[移除標題標籤或 p 標籤預設的 margin-bottom]
+Bootstrap 的標題標籤、 p 標籤預設有 margin-bottom，如果同學不喜歡這個預設的 margin-bottom 的話，
+可以搜尋  $headings-margin-bottom 和 $paragraph-margin-bottom 來修改設定將預設的 margin-bottom 移除。
+*/
+//$headings-margin-bottom:      $spacer * .5 !default;
+$headings-margin-bottom:        0 !default; // *custom
+
 $headings-font-family:        null !default;
 $headings-font-style:         null !default;
 $headings-font-weight:        500 !default;
@@ -652,7 +1001,7 @@ $mark-bg:                     $yellow-100 !default;
 // scss-docs-end type-variables
 
 
-// Tables
+// 表格 Tables
 //
 // Customizes the `.table` component with basic values, each used across all table variations.
 
@@ -824,14 +1173,25 @@ $input-padding-y-lg:                    $input-btn-padding-y-lg !default;
 $input-padding-x-lg:                    $input-btn-padding-x-lg !default;
 $input-font-size-lg:                    $input-btn-font-size-lg !default;
 
+/*
+[input 背景色]
+調整 input 背景色的地方。這裡也可以使用 transparent 來將背景色都調整為透明色。
+*/
 $input-bg:                              $body-bg !default;
+
 $input-disabled-color:                  null !default;
 $input-disabled-bg:                     $gray-200 !default;
 $input-disabled-border-color:           null !default;
 
+/* [input 文字顏色] */
 $input-color:                           $body-color !default;
+
+/* [input border 顏色] */
 $input-border-color:                    $gray-400 !default;
+
+/*[input border 寬度]*/
 $input-border-width:                    $input-btn-border-width !default;
+
 $input-box-shadow:                      $box-shadow-inset !default;
 
 $input-border-radius:                   $border-radius !default;
@@ -844,7 +1204,9 @@ $input-focus-color:                     $input-color !default;
 $input-focus-width:                     $input-btn-focus-width !default;
 $input-focus-box-shadow:                $input-btn-focus-box-shadow !default;
 
+/* [input 提示文字 顏色] */
 $input-placeholder-color:               $gray-600 !default;
+
 $input-plaintext-color:                 $body-color !default;
 
 $input-height-border:                   $input-border-width * 2 !default;
@@ -874,6 +1236,12 @@ $form-check-transition:                   null !default;
 $form-check-input-active-filter:          brightness(90%) !default;
 
 $form-check-input-bg:                     $input-bg !default;
+
+/*
+[輸入框 input 的邊框]
+搜尋 $form-check-input-border ，來到這裡可以調整輸入框的 border。
+*/
+
 $form-check-input-border:                 1px solid rgba($black, .25) !default;
 $form-check-input-border-radius:          .25em !default;
 $form-check-radio-border-radius:          50% !default;
@@ -915,6 +1283,7 @@ $form-switch-checked-bg-position: right center !default;
 // scss-docs-end form-switch-variables
 
 // scss-docs-start input-group-variables
+// Input 群組
 $input-group-addon-padding-y:           $input-padding-y !default;
 $input-group-addon-padding-x:           $input-padding-x !default;
 $input-group-addon-font-weight:         $input-font-weight !default;
@@ -924,6 +1293,7 @@ $input-group-addon-border-color:        $input-border-color !default;
 // scss-docs-end input-group-variables
 
 // scss-docs-start form-select-variables
+// 選擇功能表
 $form-select-padding-y:             $input-padding-y !default;
 $form-select-padding-x:             $input-padding-x !default;
 $form-select-font-family:           $input-font-family !default;
@@ -1006,7 +1376,7 @@ $form-floating-label-transform:   scale(.85) translateY(-.5rem) translateX(.15re
 $form-floating-transition:        opacity .1s ease-in-out, transform .1s ease-in-out !default;
 // scss-docs-end form-floating-variables
 
-// Form validation
+// 驗證 Form validation
 
 // scss-docs-start form-feedback-variables
 $form-feedback-margin-top:          $form-text-margin-top !default;
@@ -1053,7 +1423,7 @@ $zindex-toast:                      1090 !default;
 // scss-docs-end zindex-stack
 
 
-// Navs
+// 導覽與頁籤 Navs
 
 // scss-docs-start nav-variables
 $nav-link-padding-y:                .5rem !default;
@@ -1079,7 +1449,7 @@ $nav-pills-link-active-bg:          $component-active-bg !default;
 // scss-docs-end nav-variables
 
 
-// Navbar
+// 導覽列 Navbar
 
 // scss-docs-start navbar-variables
 $navbar-padding-y:                  $spacer * .5 !default;
@@ -1123,7 +1493,7 @@ $navbar-dark-brand-hover-color:     $navbar-dark-active-color !default;
 // scss-docs-end navbar-dark-variables
 
 
-// Dropdowns
+// 下拉選單 Dropdowns
 //
 // Dropdown menu container and contents.
 
@@ -1179,9 +1549,10 @@ $dropdown-dark-header-color:        $gray-500 !default;
 // scss-docs-end dropdown-dark-variables
 
 
-// Pagination
+// 分頁 Pagination
 
 // scss-docs-start pagination-variables
+// 微調分頁按鈕 padding 距離
 $pagination-padding-y:              .375rem !default;
 $pagination-padding-x:              .75rem !default;
 $pagination-padding-y-sm:           .25rem !default;
@@ -1192,19 +1563,35 @@ $pagination-padding-x-lg:           1.5rem !default;
 $pagination-font-size:              $font-size-base !default;
 
 $pagination-color:                  var(--#{$prefix}link-color) !default;
+
+// $pagination-bg 分頁按鈕背景色 可調整為透明色
 $pagination-bg:                     $white !default;
 $pagination-border-radius:          $border-radius !default;
+
+// $pagination-border-width 分頁 border 寬度
 $pagination-border-width:           $border-width !default;
+
+// $pagination-margin-start 分頁按鈕之間的間距
 $pagination-margin-start:           ($pagination-border-width * -1) !default;
+
+// $pagination-border-color 分頁按鈕的 border 顏色
 $pagination-border-color:           $gray-300 !default;
 
+// $pagination-focus-color 分頁 focus 時的文字顏色
 $pagination-focus-color:            var(--#{$prefix}link-hover-color) !default;
+
+// $pagination-focus-bg 分頁 focus 時的背景顏色
 $pagination-focus-bg:               $gray-200 !default;
 $pagination-focus-box-shadow:       $input-btn-focus-box-shadow !default;
 $pagination-focus-outline:          0 !default;
 
+// $pagination-hover-color 分頁 hover 時的文字顏色
 $pagination-hover-color:            var(--#{$prefix}link-hover-color) !default;
+
+// $pagination-hover-bg 分頁 hover 時的背景顏色
 $pagination-hover-bg:               $gray-200 !default;
+
+// $pagination-hover-border-color 分頁 hover 時的 border 顏色
 $pagination-hover-border-color:     $gray-300 !default;
 
 $pagination-active-color:           $component-active-color !default;
@@ -1229,29 +1616,68 @@ $placeholder-opacity-max:           .5 !default;
 $placeholder-opacity-min:           .2 !default;
 // scss-docs-end placeholders
 
-// Cards
+// 卡片 Cards
 
 // scss-docs-start card-variables
+
+
+/*
+[.card-body 的垂直間距]
+變數 $card-spacer-y 可以調整 .card-body 的上下間距。預設為 16px。
+*/
 $card-spacer-y:                     $spacer !default;
+
+/*
+[.card-body、.card-footer 的左右間距]
+Bootstrap 的卡片內容， .card-body 預設左右邊有留白。
+*/
 $card-spacer-x:                     $spacer !default;
+
+/*
+[.card-title 的 margin-bottom]
+卡片標題樣式 .card-title 有預設的 margin-bottom ，控制的變數為  $card-title-spacer-y ，
+只要調整這邊的數值，就可以改變 .card-title 的 margin-bottom 的數值囉。
+*/
 $card-title-spacer-y:               $spacer * .5 !default;
+
+/*
+[.card-border 的 width]
+卡片標題樣式 .card-border 有預設的 width ，控制的變數為  $border-width ，
+只要調整這邊的數值，就可以改變 .card-border 的 border 的數值囉。
+因設計稿中的 card-border 為0px, 因此這邊參數設定為0px。
+*/
 $card-border-width:                 $border-width !default;
 $card-border-color:                 var(--#{$prefix}border-color-translucent) !default;
 $card-border-radius:                $border-radius !default;
 $card-box-shadow:                   null !default;
 $card-inner-border-radius:          subtract($card-border-radius, $card-border-width) !default;
+
+/*
+[.card-footer 的垂直間距]
+調整 .card-footer 垂直間距的變數為  $card-cap-padding-y  ，
+也可以直接設定 0.75 rem （12px）。
+*/
 $card-cap-padding-y:                $card-spacer-y * .5 !default;
+
+// 不用調整~
 $card-cap-padding-x:                $card-spacer-x !default;
 $card-cap-bg:                       rgba($black, .03) !default;
 $card-cap-color:                    null !default;
 $card-height:                       null !default;
 $card-color:                        null !default;
+
+/*
+[背景顏色 $card-bg]
+Bootstrap 的卡片背景顏色 $card-bg 預設為 $card-bg: $white !default; ，也就是只要沒特別調整過的話，卡片預設的背景顏色都會是白色。
+
+可以使用 transparent 這個值來將整張卡片的背景顏色變成透明色。
+*/
 $card-bg:                           $white !default;
 $card-img-overlay-padding:          $spacer !default;
 $card-group-margin:                 $grid-gutter-width * .5 !default;
 // scss-docs-end card-variables
 
-// Accordion
+// 手風琴 Accordion 
 
 // scss-docs-start accordion-variables
 $accordion-padding-y:                     1rem !default;
@@ -1287,7 +1713,7 @@ $accordion-button-icon:         url("data:image/svg+xml,<svg xmlns='http://www.w
 $accordion-button-active-icon:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-active-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !default;
 // scss-docs-end accordion-variables
 
-// Tooltips
+// 工具提示框 Tooltips
 
 // scss-docs-start tooltip-variables
 $tooltip-font-size:                 $font-size-sm !default;
@@ -1318,7 +1744,7 @@ $form-feedback-tooltip-border-radius: $tooltip-border-radius !default;
 // scss-docs-end tooltip-feedback-variables
 
 
-// Popovers
+// 彈出提示框 Popovers
 
 // scss-docs-start popover-variables
 $popover-font-size:                 $font-size-sm !default;
@@ -1351,7 +1777,7 @@ $popover-arrow-outer-color:         var(--#{$prefix}border-color-translucent) !d
 // fusv-enable
 
 
-// Toasts
+// 吐司 Toasts
 
 // scss-docs-start toast-variables
 $toast-max-width:                   350px !default;
@@ -1372,7 +1798,7 @@ $toast-header-border-color:         rgba($black, .05) !default;
 // scss-docs-end toast-variables
 
 
-// Badges
+// 標籤 Badges
 
 // scss-docs-start badge-variables
 $badge-font-size:                   .75em !default;
@@ -1384,7 +1810,7 @@ $badge-border-radius:               $border-radius !default;
 // scss-docs-end badge-variables
 
 
-// Modals
+// 互動視窗 Modals
 
 // scss-docs-start modal-variables
 $modal-inner-padding:               $spacer !default;
@@ -1430,7 +1856,7 @@ $modal-scale-transform:             scale(1.02) !default;
 // scss-docs-end modal-variables
 
 
-// Alerts
+// 警報 Alerts
 //
 // Define alert colors, border radius, and padding.
 
@@ -1448,7 +1874,7 @@ $alert-dismissible-padding-r:   $alert-padding-x * 3 !default; // 3x covers widt
 // scss-docs-end alert-variables
 
 
-// Progress bars
+// 進度條 Progress bars
 
 // scss-docs-start progress-variables
 $progress-height:                   1rem !default;
@@ -1463,7 +1889,7 @@ $progress-bar-transition:           width .6s ease !default;
 // scss-docs-end progress-variables
 
 
-// List group
+// 列表群組 List group
 
 // scss-docs-start list-group-variables
 $list-group-color:                  $gray-900 !default;
@@ -1493,7 +1919,7 @@ $list-group-action-active-bg:       $gray-200 !default;
 // scss-docs-end list-group-variables
 
 
-// Image thumbnails
+// 圖片  thumbnails
 
 // scss-docs-start thumbnail-variables
 $thumbnail-padding:                 .25rem !default;
@@ -1505,7 +1931,7 @@ $thumbnail-box-shadow:              $box-shadow-sm !default;
 // scss-docs-end thumbnail-variables
 
 
-// Figures
+// 圖片區 Figures
 
 // scss-docs-start figure-variables
 $figure-caption-font-size:          $small-font-size !default;
@@ -1513,7 +1939,7 @@ $figure-caption-color:              $gray-600 !default;
 // scss-docs-end figure-variables
 
 
-// Breadcrumbs
+// 麵包屑 Breadcrumbs
 
 // scss-docs-start breadcrumb-variables
 $breadcrumb-font-size:              null !default;
@@ -1529,7 +1955,7 @@ $breadcrumb-divider-flipped:        $breadcrumb-divider !default;
 $breadcrumb-border-radius:          null !default;
 // scss-docs-end breadcrumb-variables
 
-// Carousel
+// 輪播 Carousel
 
 // scss-docs-start carousel-variables
 $carousel-control-color:             $white !default;
@@ -1568,7 +1994,7 @@ $carousel-dark-control-icon-filter:  invert(1) grayscale(100) !default;
 // scss-docs-end carousel-dark-variables
 
 
-// Spinners
+// 讀取圖示 Spinners
 
 // scss-docs-start spinner-variables
 $spinner-width:           2rem !default;
@@ -1583,7 +2009,7 @@ $spinner-border-width-sm: .2em !default;
 // scss-docs-end spinner-variables
 
 
-// Close
+// 關閉按鈕 Close
 
 // scss-docs-start close-variables
 $btn-close-width:            1em !default;
@@ -1601,7 +2027,7 @@ $btn-close-white-filter:     invert(1) grayscale(100%) brightness(200%) !default
 // scss-docs-end close-variables
 
 
-// Offcanvas
+// 畫布 Offcanvas
 
 // scss-docs-start offcanvas-variables
 $offcanvas-padding-y:               $modal-inner-padding !default;

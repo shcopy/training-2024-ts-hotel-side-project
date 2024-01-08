@@ -172,6 +172,14 @@ $utilities: map-merge(
         auto: auto
       )
     ),
+
+    // 自定義寬度
+    "width-custom": (
+      property: width,
+      class: wc,
+      values: map-merge($spacers, (auto: auto))
+    ),
+
     "max-width": (
       property: max-width,
       class: mw,
@@ -481,6 +489,25 @@ $utilities: map-merge(
         bolder: $font-weight-bolder
       )
     ),
+
+    // scss-docs-start custom styles for font-weight
+    "font-weight-value": (
+      property: font-weight,
+      class: fwv,
+      values: (
+        100 : 100, // Thin (Hairline)
+        200 : 200, // Extra Light (Ultra Light)
+        300 : 300, // Light
+        400 : 400, // Normal
+        500 : 500, // Medium
+        600 : 600, // Semi Bold (Demi Bold)
+        700 : 700, // Bold
+        800 : 800, // Extra Bold (Ultra Bold)
+        900 : 900, // Black (Heavy)
+      )
+    ),
+    // scss-docs-end custom styles for font-weight
+    
     "line-height": (
       property: line-height,
       class: lh,
@@ -640,8 +667,31 @@ $utilities: map-merge(
         visible: visible,
         invisible: hidden,
       )
-    )
+    ),
     // scss-docs-end utils-visibility
+    // scss-docs-start utils-background-image
+    "background-image": (
+      property: background-size,
+      class: bg-s,
+      values:(
+        cover: cover,
+        contain: contain,
+        50:50%
+      )
+    ),
+    // scss-docs-end utils-background-image
+    // scss-docs-start utils-background-position    
+    "background-position": (
+      property: background-position,
+      responsive: true,
+      class: bg-p,
+      values:(
+        center: center center,
+      )
+    ),
+    // scss-docs-end utils-background-position 
+    
+    
   ),
   $utilities
 );
